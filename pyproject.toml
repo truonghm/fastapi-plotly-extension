@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "fastapi-plotly-extension"
+version = "0.1.0"
+description = ""
+authors = ["truonghm <truong173@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "fastapi-plotly-extension"}]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+fastapi = "^0.95.0"
+pandas = "^1.5.3"
+pydantic = "^1.10.7"
+uvicorn = "^0.21.1"
+SQLAlchemy = "^2.0.7"
+python-dotenv = "^1.0.0"
+pymysql = "^1.0.3"
+cryptography = "^40.0.1"
+conda-lock = "^1.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+ruff = "^0.0.259"
+watchdog = "^3.0.0"
+httpx = "^0.23.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+ignore = ["E402","F841","E501","F401"]
+select = ["E", "F", "I", "W"]
+line-length = 100
+fixable = ["I"]
+exclude = [".env", ".venv", "venv", "notebooks"]
+show-source = true
+
+[tool.coverage.paths]
+source = ["api", "etl", "ui"]
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+
+[tool.black]
+line-length = 100
+extend-exclude = '''
+/(
+	| .env
+	| .venv
+	| venv
+	| notebooks
+)/
+'''

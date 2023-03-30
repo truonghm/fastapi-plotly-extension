@@ -1,0 +1,11 @@
+name: plotly-ext
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.*
+  - conda-lock
+  - mamba
+  - pip
+
+platforms:
+  - linux-64
